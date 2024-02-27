@@ -1,0 +1,9 @@
+fichier.txt
+fonctions.c
+fonctions.h
+fonctions.o
+main.c
+main.o
+Makefile
+shell
+tp-minishell-etu.pdf
