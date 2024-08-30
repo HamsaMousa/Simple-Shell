@@ -54,7 +54,7 @@ Other commands like **mkdir** to create a new directory or **touch filename.txt*
 
 ### 1.2 Basic Functions with Arguments
 
-Basic functions can be supplemented with arguments such as '-a', '-l', '-o', '-x'.
+Basic functions can be supplemented with arguments such as **-a**, **-l**, **-o**, **-x**.
 
 Example: **ls** function with arguments:
 
@@ -62,7 +62,7 @@ Example: **ls** function with arguments:
 
 `$ ls -l -a`
 
-For each function, the argument '--help' will also display help on how to use a specific command.
+For each function, the argument **--help** will also display help on how to use a specific command.
 
 ### 1.3 Built-in Commands
 
@@ -71,7 +71,7 @@ These commands are directly interpreted by the shell itself, so creating a new p
 Here, they are handled with the **cd** and **pwd** functions.
 
 The **cd** command allows changing directories by entering the target directory's path. 
-For example, '$ cd /home/user/documents' allows you to navigate to the "documents" directory located within the "user" directory at the root of the file system.
+For example, **$ cd /home/user/documents** allows you to navigate to the "documents" directory located within the "user" directory at the root of the file system.
 
 `$ cd ..` permettra de revenir au répertoire précedent.
 
@@ -83,7 +83,7 @@ The **pwd** command displays the current directory's path. This can be useful to
 
 Note: The following functions cannot be combined. For example:
 
-'$ ls &' and '$ ls | wc' will work, but '$ ls | wc &' is not supported.
+**$ ls &** and **$ ls | wc** will work, but **$ ls | wc &** is not supported.
 
 ### 2.1 Background Commands
 
@@ -117,31 +117,31 @@ Note: Multiple commands in the background are not supported, such as 'who & ls'.
 
 The pipe **|** allows redirecting the standard output of one command to the standard input of another command.
 
-For example, the following command counts the number of words displayed by 'ls -l':
+For example, the following command counts the number of words displayed by **ls -l**:
 
 `$ ls -l | wc`   
 
-Note: We will only handle the case with a single pipe in the form: command1 | command2.
+Note: We will only handle the case with a single pipe in the form: **command1 | command2**.
 
 ### 2.3 Redirection of stdout
 
 The redirection **>** allows redirecting the standard output of a command to a file. If the specified filename does not match an existing file, the file will be created; otherwise, it will be overwritten.
 
-For instance, the command below outputs the list of files and their permissions to the file 'file1.txt':
+For instance, the command below outputs the list of files and their permissions to the file file1.txt:
 
 `$ ls -l > fichier1.txt` 
 
 If you start the command with the word **echo**, what is written before the redirection symbol **>** will be copied into the file.
 
-For example, the following command copies the word "hello" into the file 'file1.txt':
+For example, the following command copies the word "hello" into the file file1.txt:
 
 `$ echo "bonjourr"> fichier1.txt` 
 
-Running the command '$ cat file1.txt' then produces:
+Running the command **$ cat file1.txt** then produces:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled%202.png)
 
-The only difference from the real shell's behavior is that here the quotation marks “ “ are also sent to 'file1.txt'.
+The only difference from the real shell's behavior is that here the quotation marks “ “ are also sent to file1.txt.
 
 To simply send “hello”, you would write:
 
