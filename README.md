@@ -1,20 +1,20 @@
 # README Shell
 
-Projet shell de ROB4 - 2022-2022 - ALONSO Benito et MOUSA Hamsa
+Shell Project ROB4 - 2022-2022 - ALONSO Benito et MOUSA Hamsa
 
 ---
 
-Ce Readme présente brièvement les commandes possibles de notre Shell ainsi que les instructions pour le lancer.
+This README briefly presents the possible commands for our Shell as well as the instructions for launching it.
 
-# 📂Compilation et lancement du Shell
+# 📂Compilation and Launching the Shell
 
-Pour lancer notre shell, il faut écrire les commandes suivantes dans le terminal :
+To launch our shell, you need to enter the following commands in the terminal:
 
 `$ make`
 
 `$ ./shell`
 
-Pour quitter notre shell, il suffit d’écrire la commande **exit** 
+To exit our shell, simply type the **exit** command:
 
 `$ exit`
 
@@ -22,27 +22,27 @@ ou
 
 `$ Exit`
 
-# ⌨️Commandes possibles et explications
+# ⌨️Available Commands and Explanations
 
-Dans le terminal recréé, nous avons essayé de reproduire le plus fidèlement le shell Linux. Nous avons donc à chaque fois le texte suivant qui s’affiche.
+In our recreated terminal, we've aimed to replicate the Linux shell as accurately as possible. Consequently, the following prompt appears each time:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled.png)
 
-L’utilisateur peut ensuite rentrer les commandes qu’il souhaite.
+The user can then enter the desired commands.
 
-Pour exécuter les fonctions, il suffit d’écrire le nom de la fonction comme dans un shell normal et saisir les arguments souhaités avec un maximum de 20 arguments par ligne de commande.
+To execute functions, simply write the function name as in a normal shell and enter the desired arguments, with a maximum of 20 arguments per command line.
 
-## 1. Fonctions de base
+## 1. Basic Functions Without Arguments
 
-Il s’agit des commandes directement exécutées par le shell normal (hors commandes builtin). 
+These are the commands directly executed by the normal shell (excluding built-in commands).
 
-Dans cette première partie de TP, il s’agissait de réussir à exécuter ces commandes avec ou sans arguments.
+In this first part of the project, the goal was to successfully execute these commands with or without arguments.
 
-### 1.1 Exécution de programmes sans arguments au premier plan
+### 1.1 Execution of Programs Without Arguments in the Foreground
 
-Toutes les fonctions classiques sont prise en charge grâce à l’appel execvp.
+All classic functions are supported through the **execvp** call.
 
-Parmis les plus utiles il y a par exemple :
+The following are among the most useful commands:
 
 ```c
 $ ls
@@ -50,102 +50,99 @@ $ who
 $ ps
 ```
 
-D’autres commandes comme `mkdir` créer un nouveau dossier par exemple ou encore `touch nomdufichier.txt` pour créer un nouveau fichier sont également supportées. 
+Other commands like **mkdir** to create a new directory or **touch filename.txt** to create a new text file are also supported.
 
-### 1.2 Fonctions de base avec arguments
+### 1.2 Basic Functions with Arguments
 
-On peut compléter les fonctions de base avec des arguments comme `-a` `-l` `-o` `-x`
+Basic functions can be supplemented with arguments such as '-a', '-l', '-o', '-x'.
 
-Exemple: fonction ls avec arguments :
+Example: **ls** function with arguments:
 
 `$ ls -l` 
 
 `$ ls -l -a`
 
-Pour chaque fonction l’argument `--help` permettra également d’afficher l’aide sur l’utilisation d’une commande en particulier.
+For each function, the argument '--help' will also display help on how to use a specific command.
 
-### 1.3 Builtin
+### 1.3 Built-in Commands
 
-Il s’agit des commandes du shell qui sont directement interprétées par celui-ci. Créer un nouveau processus serait donc inutilement lourds.
+These commands are directly interpreted by the shell itself, so creating a new process would be unnecessarily resource-intensive.
 
-Ici elles sont prises en charge avec les fonctions `cd` et `pwd`.
+Here, they are handled with the **cd** and **pwd** functions.
 
-La commande **cd** permet de changer de répertoire en entrant le chemin d'accès du répertoire cible. Par exemple, `$ cd /home/user/documents` permet de se déplacer dans le répertoire documents qui se trouve dans le répertoire user qui se trouve à la racine du système de fichiers.
+The **cd** command allows changing directories by entering the target directory's path. 
+For example, '$ cd /home/user/documents' allows you to navigate to the "documents" directory located within the "user" directory at the root of the file system.
 
 `$ cd ..` permettra de revenir au répertoire précedent.
 
-La gestion des cas d’erreurs est également faite, si le changement n’est pas possible un message s’affichera.
+Error handling is also implemented, so if changing the directory is not possible, a message will be displayed.
 
-La commande **pwd** permet d'afficher le chemin d'accès du répertoire courant. Cela peut être utile pour savoir où vous vous trouvez dans le système de fichiers.
+The **pwd** command displays the current directory's path. This can be useful to know where you are in the file system.
 
-## 2. Fonctions avancées
+## 2. Advanced Functions
 
-Remarque, les fonctions suivantes ne peuvent pas être combinées par exemple
+Note: The following functions cannot be combined. For example:
 
-`$ ls &` et `$ ls | wc` fonctionneront mais `$ ls | wc &` n’est pas pris en charge
+'$ ls &' and '$ ls | wc' will work, but '$ ls | wc &' is not supported.
 
-### 2.1 Commandes en arrière plan
+### 2.1 Background Commands
 
-Le symbole “&” permet de lancer une commande en arrière-plan. Cela signifie que vous pouvez continuer à utiliser votre shell pendant que la commande s'exécute.
+The **&** symbol allows you to run a command in the background. This means you can continue using your shell while the command is being executed.
 
-Nous avons aussi pris en compte le fait de coller ou non le & aux autres arguments
+We also considered whether or not the **&** is attached to other arguments:
 
 `$ ls&`
 
 `$ ls &`
 
-Et également lorsqu'il y a plusieurs arguments
+And also when there are multiple arguments:
 
 `$ ls -a -l&`
 
 `$ ls -a -l &`
 
-Avec les fonctions background, comme dans le vrai terminal, l’utilisateur aura de nouveau la main avec le texte classique avant commande qui s’affichera. 
+With background functions, just like in a real terminal, the user will regain control with the classic prompt before the command output appears.
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled.png)
 
-Ensuite le résultat de la commande viendra s’ajouter.
+Then the command result will be added.
 
-Exemple de comportement:
+Example of behavior:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled%201.png)
 
-Nb: Les commandes multiples avec arrière plan ne sont pas gérées, comme par exemple `who & ls`
+Note: Multiple commands in the background are not supported, such as 'who & ls'.
 
-### 2.2 Tuyaux
+### 2.2 Pipes
 
-Le pipe “|” permet de rediriger la sortie standard d'une commande vers l'entrée standard d'une autre commande.
+The pipe **|** allows redirecting the standard output of one command to the standard input of another command.
 
-Par exemple, la commande suivante permet de compter le nombre de mots affichés par ls -l :
+For example, the following command counts the number of words displayed by 'ls -l':
 
 `$ ls -l | wc`   
 
-Nb: on ne gèrera que le cas avec un seul tuyau de la forme: `commande1 | commande2`
+Note: We will only handle the case with a single pipe in the form: command1 | command2.
 
-### 2.3 Redirection de stdout
+### 2.3 Redirection of stdout
 
-La redirection “>” permet de rediriger la sortie standard d'une commande vers un fichier.Si le nom du fichier saisi ne correspond pas à un fichier existant, alors le fichier sera créer, sinon il sera écrasé.
+The redirection **>** allows redirecting the standard output of a command to a file. If the specified filename does not match an existing file, the file will be created; otherwise, it will be overwritten.
 
-Par exemple, la commande suivante écrira la liste des fichiers et leurs droits dans le fichier fichier1.txt :
+For instance, the command below outputs the list of files and their permissions to the file 'file1.txt':
 
 `$ ls -l > fichier1.txt` 
 
-Si on met le mot “echo” en début de commande alors ce qui a été écrit avant le symbole de redirection  “>” sera recopié dans le fichier.
+If you start the command with the word **echo**, what is written before the redirection symbol **>** will be copied into the file.
 
-Par exemple, la commande suivante permettra de recopier le mot “bonjourr” dans le fichier fichier1.txt :
+For example, the following command copies the word "hello" into the file 'file1.txt':
 
 `$ echo "bonjourr"> fichier1.txt` 
 
-En faisant un `$ cat fichier1.txt` on obtient alors:
+Running the command '$ cat file1.txt' then produces:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled%202.png)
 
-La seule différence avec le vrai comportement est que ici les “ “ sont aussi envoyés dans le fichier1.txt
+The only difference from the real shell's behavior is that here the quotation marks “ “ are also sent to 'file1.txt'.
 
-Pour simplement envoyer bonjour, il suffirait d’écrire:
+To simply send “hello”, you would write:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled%203.png)
-
-## 3. Bonus
-
-Ces deux questions n’ont pas étés traitées.
