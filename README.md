@@ -50,7 +50,7 @@ $ who
 $ ps
 ```
 
-Other commands like **mkdir** to create a new directory or **touch filename.txt** to create a new text file are also supported.
+Other commands like `$ mkdir` to create a new directory or `$ touch filename.txt` to create a new text file are also supported.
 
 ### 1.2 Basic Functions with Arguments
 
@@ -71,9 +71,9 @@ These commands are directly interpreted by the shell itself, so creating a new p
 Here, they are handled with the **cd** and **pwd** functions.
 
 The **cd** command allows changing directories by entering the target directory's path. 
-For example, **$ cd /home/user/documents** allows you to navigate to the "documents" directory located within the "user" directory at the root of the file system.
+For example, `$ cd /home/user/documents` allows you to navigate to the "documents" directory located within the "user" directory at the root of the file system.
 
-`$ cd ..` permettra de revenir au répertoire précedent.
+`$ cd ..` will allow you to return to the previous directory.
 
 Error handling is also implemented, so if changing the directory is not possible, a message will be displayed.
 
@@ -83,7 +83,7 @@ The **pwd** command displays the current directory's path. This can be useful to
 
 Note: The following functions cannot be combined. For example:
 
-**$ ls &** and **$ ls | wc** will work, but **$ ls | wc &** is not supported.
+`$ ls &` and `$ ls | wc` will work, but `$ ls | wc &` is not supported.
 
 ### 2.1 Background Commands
 
@@ -117,11 +117,11 @@ Note: Multiple commands in the background are not supported, such as 'who & ls'.
 
 The pipe **|** allows redirecting the standard output of one command to the standard input of another command.
 
-For example, the following command counts the number of words displayed by **ls -l**:
+For example, the following command counts the number of words displayed by `ls -l`:
 
 `$ ls -l | wc`   
 
-Note: We will only handle the case with a single pipe in the form: **command1 | command2**.
+Note: We will only handle the case with a single pipe in the form: `command1 | command2`.
 
 ### 2.3 Redirection of stdout
 
@@ -137,7 +137,7 @@ For example, the following command copies the word "hello" into the file file1.t
 
 `$ echo "bonjourr"> fichier1.txt` 
 
-Running the command **$ cat file1.txt** then produces:
+Running the command `$ cat file1.txt` then produces:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled%202.png)
 
