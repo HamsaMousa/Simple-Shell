@@ -133,7 +133,7 @@ For instance, the command below outputs the list of files and their permissions 
 
 If you start the command with the word **echo**, what is written before the redirection symbol **>** will be copied into the file.
 
-For example, the following command copies the word "hello" into the file file1.txt:
+For example, the following command copies the word "bonjour" into the file file1.txt:
 
 `$ echo "bonjourr"> fichier1.txt` 
 
@@ -143,6 +143,6 @@ Running the command `$ cat file1.txt` then produces:
 
 The only difference from the real shell's behavior is that here the quotation marks “ “ are also sent to file1.txt.
 
-To simply send “hello”, you would write:
+To simply send “bonjour”, you would write:
 
 ![Untitled](README%20Shell%2025d1468364cd478f90ee82540c5a97d1/Untitled%203.png)
