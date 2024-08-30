@@ -18,7 +18,7 @@ To exit our shell, simply type the **exit** command:
 
 `$ exit`
 
-ou
+or
 
 `$ Exit`
 
