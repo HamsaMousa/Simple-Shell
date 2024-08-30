@@ -1,6 +1,6 @@
 # README Shell
 
-Shell Project ROB4 - 2022 - ALONSO Benito et MOUSA Hamsa
+Shell Project ROB4 - 2022 - ALONSO Benito and MOUSA Hamsa
 
 ---
 
